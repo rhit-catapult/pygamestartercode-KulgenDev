@@ -3,6 +3,8 @@ import sys
 
 # TODO: when need import the fighter_missile_module
 # TODO: when need import the enemy_fleet_module
+import fighter_missile_module
+import enemy_fleet_module
 
 
 def main():
@@ -14,6 +16,7 @@ def main():
     # TODO 9: Set    enemy_rows    to an initial value of 3.
     # TODO 10: Create an EnemyFleet object (called enemy_fleet) with the screen and enemy_rows
     # TODO 1: Create a Fighter (called fighter)
+    fighter = fighter_missile_module.Fighter(screen)
 
     while True:
         clock.tick(60)

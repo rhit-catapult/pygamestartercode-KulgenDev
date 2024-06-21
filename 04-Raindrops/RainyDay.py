@@ -2,6 +2,7 @@ import pygame
 import sys
 import time  # Note this!
 import random  # Note this!
+import HeroModule
 
 
 class Raindrop:
@@ -30,38 +31,6 @@ class Raindrop:
                          2)
 
 
-class Hero:
-    def __init__(self, screen : pygame.Surface, x, y, with_umbrella_filename, without_umbrella_filename):
-        """ Creates a Hero sprite (Mike) that does not move. If hit by rain he'll put up his umbrella. """
-        self.screen = screen
-        self.x = x
-        self.y = y
-        self.imgUmb = pygame.image.load(with_umbrella_filename)
-        self.imgNUmb = pygame.image.load(without_umbrella_filename)
-        self.lastHitTime = 0
-
-    def draw(self):
-        """ Draws this sprite onto the screen. """
-        # TODO 17: Draw (blit) this Hero, at this Hero's position, WITHOUT an umbrella:
-        # TODO 21: Instead draw (blit) this Hero, at this Hero's position, as follows:
-        #     If the current time is greater than this Hero's last_hit_time + 1,
-        #       draw this Hero WITHOUT an umbrella,
-        #       otherwise draw this Hero WITH an umbrella.
-        currentTime = time.time()
-        if currentTime > self.lastHitTime + 1:
-            self.screen.blit(self.imgNUmb, (self.x, self.y))
-        else:
-            self.screen.blit(self.imgUmb, (self.x, self.y))
-
-    def hit_by(self, raindrop):
-        """ Returns true if the given raindrop is hitting this Hero, otherwise false. """
-        # TODO 19: Return True if this Hero is currently colliding with the given Raindrop.
-        heroHitBox = pygame.Rect(self.x,
-                                 self.y,
-                                 self.imgNUmb.get_width(),
-                                 self.imgNUmb.get_height())
-
-        return heroHitBox.collidepoint(raindrop.x, raindrop.y)
 
 
 class Cloud:
@@ -111,8 +80,8 @@ def main():
     test_drop = Raindrop(screen, 250, 10)
     # TODO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     # TODO 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
-    mike = Hero(screen, 200, 400, "Mike_umbrella.png", "Mike.png")
-    alyssa = Hero(screen, 700, 400, "Alyssa_umbrella.png", "Alyssa.png")
+    mike = HeroModule.Hero(screen, 200, 400, "Mike_umbrella.png", "Mike.png")
+    alyssa = HeroModule.Hero(screen, 700, 400, "Alyssa_umbrella.png", "Alyssa.png")
     # TODO 23: Make a Cloud, named cloud, with appropriate images, starting at position x=300 y=50.
     cloud = Cloud(screen, 300, 50, "cloud.png")
 
