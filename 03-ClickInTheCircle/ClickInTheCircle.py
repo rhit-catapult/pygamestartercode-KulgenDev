@@ -21,7 +21,7 @@ def main():
     font = pygame.font.Font(None, 25)
 
     # TODO 8: Load the "drums.wav" file into the pygame music mixer
-    pygame.mixer.music.load("drums.wav")
+    pygame.mixer.music.load("Attack.wav")
     instruction_text = 'Click in the circle'
     text_color = (222, 222, 0)
     instructions_image = font.render(instruction_text, True, text_color)
