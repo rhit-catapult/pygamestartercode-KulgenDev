@@ -4,6 +4,7 @@ import sys
 
 def main():
     pygame.init()
+    test = {"car" : 3}
     pygame.display.set_caption("Moving Smile")
     screen = pygame.display.set_mode((640, 480))
     clock = pygame.time.Clock()
